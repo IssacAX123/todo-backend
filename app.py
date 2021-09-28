@@ -17,7 +17,9 @@ mysql = MySQL(app)
 api.add_resource(User, '/api/v1/user/<string:email>', endpoint='get-user', methods=['GET'], resource_class_kwargs={"mysql": mysql})
 api.add_resource(User, '/api/v1/user/create', endpoint='create-user', methods=['POST'], resource_class_kwargs={"mysql": mysql})
 api.add_resource(TaskList, '/api/v1/task/<string:user_id>/all', endpoint='get-tasklist', methods=['GET'], resource_class_kwargs={"mysql": mysql})
-api.add_resource(Task, '/api/v1/task/<string:user_id>/all', endpoint='get-tasklist', methods=['GET'], resource_class_kwargs={"mysql": mysql})
+api.add_resource(Task, '/api/v1/task/<string:user_id>/<string:task_id>', endpoint='get-task', methods=['GET', 'DELETE'], resource_class_kwargs={"mysql": mysql})
+api.add_resource(Task, '/api/v1/task/create', endpoint='create_task', methods=['POST'], resource_class_kwargs={"mysql": mysql})
+api.add_resource(Task, '/api/v1/task/<string:user_id>/<string:task_id>', endpoint='update-task', methods=['PATCH'], resource_class_kwargs={"mysql": mysql})
 
 if __name__ == '__main__':
     app.run(debug=True)

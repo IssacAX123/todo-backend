@@ -7,7 +7,7 @@ import bcrypt
 
 class TaskList(Resource):
     def __init__(self, **kwargs):
-        self.mysql = kwargs["sql"]
+        self.mysql = kwargs["mysql"]
         self.cursor = self.mysql.connection.cursor()
 
     def get(self, user_id):

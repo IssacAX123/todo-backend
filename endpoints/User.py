@@ -7,7 +7,7 @@ import bcrypt
 
 class User(Resource):
     def __init__(self, **kwargs):
-        self.mysql = kwargs["sql"]
+        self.mysql = kwargs["mysql"]
         self.cursor = self.mysql.connection.cursor()
 
     def get(self, email):
